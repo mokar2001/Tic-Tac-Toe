@@ -1,0 +1,149 @@
+:root {
+  --green: rgb(20, 189, 175);
+  --darkGreen: rgb(3, 123, 128);
+  --darkerGreen: rgb(1, 89, 95);
+  --backColor: #21212c;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Lato;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--backColor);
+  display: flex;
+  height: 100vh;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.navbar {
+  background-color: var(--green);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 1.3rem;
+  color: var(--backColor);
+  text-align: center;
+  box-shadow: 0px 15px -1px var(--green);
+}
+
+.game-container {
+  background-color: var(--green);
+  border-radius: 1rem;
+  box-shadow: rgba(20, 189, 172, 0.2) 0px 5px 15px;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 50px;
+}
+
+.game-container .title {
+  font-size: 1.5rem;
+  text-align: center;
+  color: var(--backColor);
+}
+
+.grid {
+  background-color: var(--darkGreen);
+  display: grid;
+  border: none;
+  outline: none;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-gap: 10px;
+  margin-top: 30px;
+}
+
+.cell {
+  border: none;
+  outline: none;
+  width: 100px;
+  height: 100px;
+  background-color: var(--green);
+  font-size: 4rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--green);
+  transition: 100ms;
+}
+
+.selected {
+  font-size: 5rem;
+  color: var(--darkGreen);
+}
+
+.win {
+  color: var(--backColor);
+}
+
+.status-action {
+  display: flex;
+  justify-content: space-around;
+}
+
+.status, .reset{
+  font-size: 1.2rem;
+  margin-top: 30px;
+  text-align: center;
+  background-color: var(--darkerGreen);
+  color: var(--green);
+  padding: 0.5rem;
+  border-radius: 0.6rem;
+  width: 80px;
+}
+
+.reset {
+  width: 70px;
+  margin-left: 20px;
+  cursor: pointer;
+  transition: 300ms;
+}
+
+.status:hover, .reset:hover {
+  opacity: 0.8;
+}
+
+.x-point, .o-point {
+  color: var(--green);
+  font-size: 10rem;
+}
+
+@media screen and (max-height: 600px) {
+  .game-container {
+    margin-top: 200px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .cell {
+    width: 70px;
+    height: 70px;
+    font-size: 3.3rem;
+  }
+
+  .game-container .title {
+    font-size: 1.2rem;
+  }
+
+  .reset, .status {
+    font-size: 1rem;
+    width: 70px;
+  }
+
+  .game-container .grid {
+    grid-gap: 5px;
+  }
+
+  .x-point, .o-point {
+    font-size: 5rem;
+  }
+}
